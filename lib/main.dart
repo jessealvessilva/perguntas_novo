@@ -6,6 +6,8 @@ void main() {
 
 class PerguntasApp extends StatelessWidget {
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return MaterialApp(
+      home: Text('Olá Flutter'),
+    );
   }
 }
