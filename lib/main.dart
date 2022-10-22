@@ -7,7 +7,13 @@ void main() {
 class PerguntasApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Text('Olá Flutter'),
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text("Perguntas"),
+          ),
+          body: const Center(
+            child: Text("Olá Flutter!!!"),
+          )),
     );
   }
 }
