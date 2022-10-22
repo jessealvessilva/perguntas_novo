@@ -11,8 +11,12 @@ class PerguntasApp extends StatelessWidget {
           appBar: AppBar(
             title: Text("Perguntas"),
           ),
-          body: const Center(
-            child: Text("Olá Flutter!!!"),
+          body: Column(
+            children: [
+              Text('Linha 1'),
+              Text('Linha 2'),
+              Text('Linha 3'),
+            ],
           )),
     );
   }
