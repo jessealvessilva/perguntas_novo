@@ -5,6 +5,16 @@ void main() {
 }
 
 class PerguntasApp extends StatelessWidget {
+  void responder() {
+    print("Pergunta respondida!!!");
+  }
+
+  void Function() funcaoQueRetornaumaFuncao() {
+    return () {
+      print('Pergunta respondida');
+    };
+  }
+
   Widget build(BuildContext context) {
     final perguntas = [
       'Qual a sua cor favorita ?',
@@ -19,16 +29,20 @@ class PerguntasApp extends StatelessWidget {
             children: [
               Text(perguntas[0]),
               ElevatedButton(
-                onPressed: null,
+                onPressed: responder,
                 child: Text('Resposta 1'),
               ),
               ElevatedButton(
-                onPressed: null,
+                onPressed: responder,
                 child: Text('Resposta 2'),
               ),
               ElevatedButton(
-                onPressed: null,
+                onPressed: responder,
                 child: Text('Resposta 3'),
+              ),
+              ElevatedButton(
+                onPressed: funcaoQueRetornaumaFuncao(),
+                child: Text('Resposta 4'),
               ),
             ],
           )),
