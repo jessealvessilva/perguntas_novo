@@ -37,19 +37,9 @@ class _PerguntasAppState extends State<PerguntasApp> {
           body: Column(
             children: [
               Questao(texto: perguntas[_perguntaSelecionada]),
-              Resposta(texto: 'Resposta 1'),
-              ElevatedButton(
-                onPressed: _responder,
-                child: Text('Resposta 2'),
-              ),
-              ElevatedButton(
-                onPressed: _responder,
-                child: Text('Resposta 3'),
-              ),
-              ElevatedButton(
-                onPressed: funcaoQueRetornaumaFuncao(),
-                child: Text('Resposta 4'),
-              ),
+              Resposta(texto: 'Resposta 1', quandoSelecionado: _responder),
+              Resposta(texto: 'Resposta 1', quandoSelecionado: _responder),
+              Resposta(texto: 'Resposta 1', quandoSelecionado: _responder),
             ],
           )),
     );
