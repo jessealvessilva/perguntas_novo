@@ -14,29 +14,46 @@ class PerguntasApp extends StatefulWidget {
 
 class _PerguntasAppState extends State<PerguntasApp> {
   var _perguntaSelecionada = 0;
+  var _pontuacaoTotal = 0;
+
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
-      'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco'],
-      'teste': 1
+      'respostas': [
+        {"texto": 'Preto', "pontuacao": 10},
+        {"texto": 'Vermelho', "pontuacao": 5},
+        {"texto": 'Verde', "pontuacao": 3},
+        {"texto": 'Branco', "pontuacao": 1},
+      ],
     },
     {
       'texto': 'Qual é o seu animal favorito?',
-      'respostas': ['Coelho', 'Cobra', 'Elefante', 'Leão'],
-      'teste': 2
+      'respostas': [
+        {"texto": "Coelho", "pontuacao": 10},
+        {"texto": "Cobra", "pontuacao": 5},
+        {"texto": "Elefante", "pontuacao": 3},
+        {"texto": "Leão", "pontuacao": 1},
+      ],
     },
     {
       'texto': 'Qual é o seu instrutor favorito?',
-      'respostas': ['Maria', 'João', 'Leo', 'Pedro'],
-      'teste': 3
+      'respostas': [
+        {"texto": 'Leo', "pontuacao": 10},
+        {"texto": 'Maria', "pontuacao": 5},
+        {"texto": 'João', "pontuacao": 3},
+        {"texto": 'Pedro', "pontuacao": 1},
+      ],
     },
   ];
 
-  void _responder() {
-    setState(() {
-      _perguntaSelecionada++;
-    });
-    print("Pergunta respondida!!!");
+  void _responder(int pontuacao) {
+    if (temPerguntaSelecionada) {
+      setState(() {
+        _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
+      });
+    }
+    print("Pontuacão Total ${_pontuacaoTotal}");
   }
 
   bool get temPerguntaSelecionada {
@@ -56,9 +73,9 @@ class _PerguntasAppState extends State<PerguntasApp> {
             ? Questionario(
                 perguntas: _perguntas,
                 perguntaSelecionada: _perguntaSelecionada,
-                responder: _responder,
+                quandoResponder: _responder,
               )
-            : Resultado(),
+            : Resultado(pontuacao: _pontuacaoTotal),
       ),
     );
   }
