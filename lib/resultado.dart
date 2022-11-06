@@ -3,7 +3,13 @@ import 'package:flutter/cupertino.dart';
 
 class Resultado extends StatelessWidget {
   final int pontuacao;
-  const Resultado({super.key, required this.pontuacao});
+  final void Function() quandoReiniciarQuestionario;
+
+  const Resultado({
+    super.key,
+    required this.pontuacao,
+    required this.quandoReiniciarQuestionario,
+  });
 
   String get fraseResultado {
     print("Pontuação ${pontuacao}");
@@ -21,11 +27,23 @@ class Resultado extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print("Pontuação 1 : ${pontuacao}");
-    return Center(
-      child: Text(
-        fraseResultado,
-        style: TextStyle(fontSize: 28),
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Center(
+          child: Text(
+            fraseResultado,
+            style: TextStyle(fontSize: 28),
+          ),
+        ),
+        ElevatedButton(
+          onPressed: quandoReiniciarQuestionario,
+          child: Text(
+            "Reiniciar",
+            style: TextStyle(fontSize: 8),
+          ),
+        )
+      ],
     );
   }
 }
